@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: cloud-autoscaling-simulator
+    env: node
+    buildCommand: "cd client && npm install && npm run build && cd ../server && npm install"
+    startCommand: "node server/server.js"
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://rshashank893_db_user:Shashank%4046@cluster0.uxeqshd.mongodb.net/autoscalerDB?retryWrites=true&w=majority&appName=Cluster0
