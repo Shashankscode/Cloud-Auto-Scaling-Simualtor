@@ -9,11 +9,12 @@ app.use(cors());
 app.use(express.json());
 
 // --- MONGODB CONNECTION ---
-const MONGO_URI = process.env.MONGO_URI;
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connected to MongoDB Atlas'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+// --- MONGODB CONNECTION ---
+mongoose.connect(process.env.MONGO_URI, {
+  dbName: 'autoscalerDB' // This forces the application to use the correct database
+})
+.then(() => console.log('Connected to MongoDB Atlas: autoscalerDB'))
+.catch((err) => console.error('MongoDB connection error:', err));
 
 // --- ENGINE ALGORITHMIC CONFIGURATION ---
 let config = {
