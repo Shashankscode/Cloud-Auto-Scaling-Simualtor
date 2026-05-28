@@ -11,9 +11,9 @@ app.use(express.json());
 // --- MONGODB CONNECTION ---
 const MONGO_URI = process.env.MONGO_URI;
 
-mongoose.connect(MONGO_URI, {family: 4})
-  .then(() => console.log('Connected to MongoDB for Autoscaling Engine'))
-  .catch(err => console.error('MongoDB connection error:', err));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('Connected to MongoDB Atlas'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
 // --- ENGINE ALGORITHMIC CONFIGURATION ---
 let config = {
